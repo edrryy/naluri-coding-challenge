@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 
 class SolarController extends Controller
 {
-  function index(){
-    $pi = pi();
-    return view('index',compact('pi'));
+  public function index()
+  {
+    $pi = $this->pi();
+    $circumference = $this->circumference($pi);
+    return view('index',compact('pi','circumference'));
   }
-  function pi()
+  public function pi()
   {
     $pi = 3;
     $x = 2;
@@ -30,5 +32,14 @@ class SolarController extends Controller
       $count ++;
     }
     return $pi;
+  }
+  function circumference($pi)
+  {
+    // Formula circumference = 2πr
+    // Diameter of sun = 1392530 Kilometers
+    // Radius of sun =  696,265 Kilometers
+    $radius = 696265;
+    $circumference = 2 * $pi * $radius;
+    return $circumference;
   }
 }

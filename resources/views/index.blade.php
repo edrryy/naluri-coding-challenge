@@ -6,5 +6,7 @@
   </head>
   <body>
     Accurate pi value = {{$pi}}
+    <br>
+    Circumference of sun = {{$circumference}} km
   </body>
 </html>
